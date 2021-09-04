@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.destroy
   end
-  # deleteアクションを追加
+  # destroyアクションを追加
   # Task.find(task_params)をtaskに入れて値を取り出す。
   # task.destroyで消す作業を記述
 
