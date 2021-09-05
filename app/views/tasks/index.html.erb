@@ -5,11 +5,13 @@
   <%= form.submit %>
 <% end %>
 
+
+<%# テーブルを追加 %>
 <table class="table">
 <tr>
   <th>ID</th><th>タイトル</th><th>内容</th>
 </tr>
-<%# テーブルを追加 %>
+
 
 <tr>   
   <% @tasks.each do |todo| %>

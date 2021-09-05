@@ -23,7 +23,11 @@ class TasksController < ApplicationController
   # Task.find(task_params)をtaskに入れて値を取り出す。
   # task.destroyで消す作業を記述
 
-
+  def edit
+    @task = Task.find(params[:id])
+  end
+#editアクションを追加
+# Task.find(task_params)をtaskに入れて値を取り出す。
 
 
   private
