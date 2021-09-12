@@ -13,6 +13,7 @@ class TasksController < ApplicationController
     task = Task.new(task_params)
     #モデルクラスのインスタンス化（値を取る）
     task.save
+    redirect_to tasks_path
   end
 
   def destroy
@@ -27,12 +28,23 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 #editアクションを追加
-# Task.find(task_params)をtaskに入れて値を取り出す。
+#Task.find(task_params)をtaskに入れて値を取り出す。
+
+  def update
+    task = Task.find(params[:id])
+    task.update(task_params)
+    redirect_to tasks_path
+  end
+
+  def show
+    task = Task.find(params[:id])
+  end
 
 
   private
 
   def task_params
-    params.require(:task).permit(:title,:content)
+    params.require(:task).permit(:title, :content)
   end
 end
+
