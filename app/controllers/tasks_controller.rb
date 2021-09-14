@@ -19,10 +19,12 @@ class TasksController < ApplicationController
   def destroy
     task = Task.find(params[:id])
     task.destroy
+    redirect_to tasks_path
   end
   # destroyアクションを追加
   # Task.find(task_params)をtaskに入れて値を取り出す。
   # task.destroyで消す作業を記述
+  #redirect_to で削除を実行したら一覧画面に戻る。
 
   def edit
     @task = Task.find(params[:id])
