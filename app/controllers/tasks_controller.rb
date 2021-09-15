@@ -40,6 +40,10 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+
+    # @tasks = Task.all
+    # #全ての配列を取得
+    # @task = Task.new
   end
 
 
