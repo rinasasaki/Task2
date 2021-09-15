@@ -7,7 +7,7 @@
 
 <%# form_withでフォームを作成 %>
 
-<table border="1">
+<table class = "table">
 
 <tr>
   <th align="left">タイトル</th>
@@ -22,7 +22,7 @@
     <td align="left"><%= todo.content %></td>
     <td><%= link_to '詳細', task_path(todo.id), method: :get %></td>
     <td><%= link_to '編集', edit_task_path(todo.id) %></td>
-    <td><%= link_to '削除', task_path(todo.id), method: :delete %></td>
+    <td><%= link_to '削除', task_path(todo.id), method: :delete, data: {confirm: '削除しますか？'}%></td>
   </tr>
   <% end %>
 
