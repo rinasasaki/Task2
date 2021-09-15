@@ -13,24 +13,18 @@
 </tr>
 
 
-<tr>   
-  <% @tasks.each do |todo| %>
-  <td><%= todo.id %></td>
-  <td><%= todo.title %></td> 
-  <td><%= todo.content %></td>
-  <td><%= link_to '削除', task_path(todo.id), method: :delete %></td>
-  <% end %>
+<% @tasks.each do |todo| %>
+  <tr>   
+    <td><%= todo.id %></td>
+    <td><%= todo.title %></td> 
+    <td><%= todo.content %></td>
+    <td><%= link_to '詳細', task_path(todo.id), method: :get %></td>
+    <td><%= link_to '編集', edit_task_path(todo.id) %></td>
+    <td><%= link_to '削除', task_path(todo.id), method: :delete %></td>
+  </tr>
+<% end %>
+
 </table>
-
-<%# <script>
-function delData(num){
-  if (confirm('このデータを削除しますか？')){
-    document.location = "/tasks/delete/" + num;
-  }
-  return false;
-}
-</script> %>
-
 
 
 
