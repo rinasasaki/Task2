@@ -2,6 +2,14 @@
 
 <h2><%= @task.title %></h2>
 <p><%= @task.content %></p>
+
+  <td><%= link_to '編集', edit_task_path(params[:id]) %></td>
+  <td><%= link_to '削除', task_path(params[:id]), method: :delete %></td>
+
+
+
+
 <%= link_to :back do %>
   <button>戻る</button>
 <% end %>
+
