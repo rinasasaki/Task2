@@ -39,15 +39,18 @@ class TasksController < ApplicationController
     #Task.find(task_params)をtaskに入れて値を取り出す。
 
   def update
-    task = Task.find(params[:id])
-    task.update(task_params)
-    redirect_to tasks_path
+    @task = Task.find(params[:id])
+    if task.update(task_params)
+    redirect_to task_path
+  else
+    render :edit
   end
+end
 
     #updateメソッド
-    #Task.find(task_params)をtaskに入れて値を取り出す。
-    #更新する
-    #一覧画面に戻る
+    #Task.find(params[:id])をtaskに入れて値を取り出す。
+    #そのIDのタイトルと内容だったら更新して、一覧画面に戻る
+    #違ったら、編集画面に戻る
 
   def show
     @task = Task.find(params[:id])
