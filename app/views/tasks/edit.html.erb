@@ -5,6 +5,8 @@
   <%= form.text_field :content %>
   <%= form.submit %>
 <% end %>
+  
+<%=link_to '戻る', :back, class:'back-btn' %>
 
 <% if @task.errors.any? %>
   <font color = red>エラーです。タイトルを入力してください。</font>
