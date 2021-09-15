@@ -1,28 +1,31 @@
-<h1>Tasks#index</h1>
 <%= form_with model: @task do |form| %>
   <%= form.text_field :title %>
   <%= form.text_field :content %>
   <%= form.submit %>
 <% end %>
 
+<%# form_withでフォームを作成 %>
+
+<table class="table">
+
+  <tr>
+    <th>タイトル</th><th>内容</th>
+  </tr>
 
 <%# テーブルを追加 %>
-<table class="table">
-<tr>
-  <th>ID</th><th>タイトル</th><th>内容</th>
-</tr>
 
+  <% @tasks.each do |todo| %>
+    <tr>   
+      <td><%= todo.title %></td> 
+      <td><%= todo.content %></td>
+      <td><%= link_to '詳細', task_path(todo.id), method: :get %></td>
+      <td><%= link_to '編集', edit_task_path(todo.id) %></td>
+      <td><%= link_to '削除', task_path(todo.id), method: :delete %></td>
+    </tr>
+  <% end %>
 
-<% @tasks.each do |todo| %>
-  <tr>   
-    <td><%= todo.id %></td>
-    <td><%= todo.title %></td> 
-    <td><%= todo.content %></td>
-    <td><%= link_to '詳細', task_path(todo.id), method: :get %></td>
-    <td><%= link_to '編集', edit_task_path(todo.id) %></td>
-    <td><%= link_to '削除', task_path(todo.id), method: :delete %></td>
-  </tr>
-<% end %>
+<%# eachメソッドで処理を繰り返す %>
+<%# link_toメソッドでリンクを生成 %>
 
 </table>
 
