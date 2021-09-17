@@ -42,10 +42,11 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(task_params)
     redirect_to tasks_path
-  else
+      else
     render :edit
+    end
   end
-end
+
 
     #updateメソッド
     #Task.find(params[:id])をtaskに入れて値を取り出す。

@@ -1,16 +1,16 @@
 <h1>Todoを編集</h1>
 
+
 <%= form_with model: @task do |form| %>
-  <%= form.text_field :title %>
   <%= form.text_field :content %>
   <%= form.submit %>
-<% end %>
+
   
 <%=link_to '戻る', :back, class:'back-btn' %>
 
-<% if @task.errors.any? %>
+<%= if @task.errors.any? %>
   <p color = red>エラーです。</p>
-<% end %>
+<%= end %>
 
 
 
