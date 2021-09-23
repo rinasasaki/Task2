@@ -1,5 +1,5 @@
   <%= form_with model: @task do |form| %>
-  <%= render 'layouts/error_messages', model: form.object %>
+  <%= render 'layouts/error_messages', model: @task %>
   <%= form.text_field :title %>
   <%= form.text_field :content %>
   <%= form.submit %>
