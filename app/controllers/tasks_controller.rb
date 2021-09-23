@@ -9,11 +9,19 @@ class TasksController < ApplicationController
     #全ての配列を取得
     #モデルクラスのインスタンス化(form withでモデルのインスタンスを渡すため)
 
-  def create
-    task = Task.new(task_params)
-    task.save
-    redirect_to tasks_path
-  end
+    def new
+      @task = Task.new(params[:id])
+    end
+
+    def create
+      @task = Task.new(task_params)
+      if @task.save
+        redirect_to tasks_path
+      else
+        @tasks = Task.all # ここを追加
+        render 'index'
+      end
+    end
 
     #createメソッド
     #モデルクラスのインスタンス化（値を取る）
@@ -61,6 +69,11 @@ class TasksController < ApplicationController
     # #全ての配列を取得
     # @task = Task.new
 
+    def retry
+      index
+      create
+    end
+
 
   private
 
@@ -73,4 +86,3 @@ class TasksController < ApplicationController
 end
 
     
-
