@@ -19,7 +19,7 @@ class TasksController < ApplicationController
         redirect_to tasks_path
       else
         @tasks = Task.all # ここを追加
-        render 'index'
+        render :index
       end
     end
 
